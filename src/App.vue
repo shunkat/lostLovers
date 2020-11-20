@@ -8,6 +8,8 @@
 <script>
 import HelloWorld from "./components/pages/HelloWorld.vue";
 import "@/lib/test.js"; // これでjsを読み込める…
+import { getWeather } from "@/lib/test"; // これでメソッド読み込める…
+console.log(getWeather("tokyo"));
 export default {
   name: "App",
   components: {
