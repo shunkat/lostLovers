@@ -1,24 +1,18 @@
 <template>
-  <div
-    id="app"
-    class="bg-red-600"
-  >
-    <img
-      alt="Vue logo"
-      src="./assets/logo.png"
-    >
+  <div id="app" class="bg-white">
+    <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/pages/HelloWorld.vue";
-
+import "@/lib/test.js"; // これでjsを読み込める…
 export default {
   name: "App",
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
 };
 </script>
 
