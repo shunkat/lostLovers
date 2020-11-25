@@ -1,23 +1,34 @@
 <template>
   <div
     id="app"
-    class="bg-red-600"
+    class=""
   >
-    <img
-      alt="Vue logo"
-      src="./assets/logo.png"
-    >
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Cloth :dress-number="dressIndex" />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/pages/HelloWorld.vue";
-
+import Cloth from "./components/pages/Cloth.vue";
+import {clothIndex} from "./lib/clothes"　//　テスト用
 export default {
   name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+    Cloth
+
+  },
+  data(){
+    return{
+     
+      dressIndex:2
+    }
+  },
+  mounted() {
+    this.dressIndex=clothIndex(21)
+    console.log(this.dressIndex) // テスト用
+   
   }
 };
 </script>
