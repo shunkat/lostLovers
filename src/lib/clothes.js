@@ -28,7 +28,7 @@ fetch("https://api.openweathermap.org/data/2.5/forecast/")
 
 
 // データ格納
-function getWeatherData() {
+// function getWeatherData() {
 	// path data.main.取得したい情報
 	// (data.name) ? city.name = data.name.toUpperCase(): 
 	
@@ -37,7 +37,7 @@ function getWeatherData() {
 	// clothes.tempMax = Math.round(data.main.temp_max);
 
 	
-}
+// }
 
 
 export const clothIndex= (temperature) => {
