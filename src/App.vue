@@ -3,41 +3,32 @@
     id="app"
     class=""
   >
-    <img
-      alt="読み込みません"
-      :src="clothesImage"
-    >
-  
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Cloth :dress-number="dressIndex" />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/pages/HelloWorld.vue";
+import Cloth from "./components/pages/Cloth.vue";
 import {clothIndex} from "./lib/clothes"　//　テスト用
 export default {
   name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+    Cloth
+
   },
   data(){
     return{
-      clothesImage:"",
-      dressIndex:null
+     
+      dressIndex:2
     }
   },
   mounted() {
     this.dressIndex=clothIndex(21)
     console.log(this.dressIndex) // テスト用
-    if(this.dressIndex==4){
-this.clothesImage="/img/t-shirt.png"
-    } else if (this.dressIndex==3) {
-      this.clothesImage="/img/y-shirt.png"
-    } else if (this.dressIndex==2) {
-      this.clothesImage=""
-    } else if (this.dressIndex==1){
-      this.clothesImage="/img/jacket.png"
-    }
+   
   }
 };
 </script>
