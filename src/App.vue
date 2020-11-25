@@ -21,7 +21,11 @@ import HelloWorld from "./components/pages/HelloWorld.vue";
 //位置情報を取得する
 import "@/lib/location.js"; // これでjsを読み込める…
 import { getLocation } from "@/lib/location"; // これでメソッド読み込める…
-console.log(getLocation());
+const getLat = async () => {
+  const latAndLng = await getLocation();
+  console.dir(latAndLng);
+};
+getLat();
 
 //天気情報を取得する
 import "@/lib/weather.js"; // これでjsを読み込める…
