@@ -17,18 +17,21 @@
 import HelloWorld from "./components/pages/HelloWorld.vue";
 
 //位置情報を取得する
-import "@/lib/location.js"; // これでjsを読み込める…
-import { getLocation } from "@/lib/location"; // これでメソッド読み込める…
-const getLat = async () => {
+import "@/lib/location.js";
+import "@/lib/weather.js";
+import { getLocation } from "@/lib/location";
+import { getWeather } from "@/lib/weather";
+const getTemp = async () => {
   const latAndLng = await getLocation();
-  console.dir(latAndLng);
+
+  console.log(letAndLng.lat);
+  let Weather = await getWeather(latAndLng.lat, latAndLng.lng);
+  console.log(Weather);
 };
-getLat();
+getTemp();
 
 //天気情報を取得する
-import "@/lib/weather.js"; // これでjsを読み込める…
-import { getWeather } from "@/lib/weather"; // これでメソッド読み込める…
-// console.log(getWeather(35.460848899999995, 139.64011829999998)); //緯度と経度を引数に渡す
+
 import Cloth from "./components/pages/Cloth.vue";
 import { clothIndex } from "./lib/clothes"; //　テスト用
 export default {

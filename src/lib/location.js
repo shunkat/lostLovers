@@ -25,5 +25,6 @@ export const getLocation = async () => {
       maximumAge: 5000,
     }
   );
+  console.log(result.lat);
   return result;
 };
