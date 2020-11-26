@@ -22,12 +22,14 @@ export const getWeather = async (lat, lon) => {
     });
   return result;
 };
-export const getTemperature = () => {
-  const latAndLng = getLocation().then((result) => {
+export const getTemperature = async () => {
+  const latAndLng = await getLocation().then((result) => {
     return result;
   });
-  const weather = getWeather(latAndLng.lat, latAndLng.lng).then((result) => {
-    return result;
-  });
-  return result;
+  const tempatureInDay = await getWeather(latAndLng.lat, latAndLng.lng).then(
+    (result) => {
+      return result.day;
+    }
+  );
+  return tempatureInDay;
 };
