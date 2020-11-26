@@ -15,6 +15,7 @@
 
 <script>
 import HelloWorld from "./components/pages/HelloWorld.vue";
+import { getTemperature } from "@/lib/weather";
 import Cloth from "./components/pages/Cloth.vue";
 import { clothIndex } from "./lib/clothes"; //　テスト用
 export default {
@@ -31,6 +32,7 @@ export default {
   mounted() {
     this.dressIndex = clothIndex(21);
     console.log(this.dressIndex); // テスト用
+    console.log(getTemperature());
   },
 };
 </script>

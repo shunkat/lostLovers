@@ -22,11 +22,12 @@ export const getWeather = async (lat, lon) => {
     });
   return result;
 };
-export const getTempature = () => {
+export const getTemperature = () => {
   const latAndLng = getLocation().then((result) => {
     return result;
   });
   const weather = getWeather(latAndLng.lat, latAndLng.lng).then((result) => {
     return result;
   });
+  return result;
 };
