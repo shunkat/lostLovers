@@ -26,10 +26,10 @@ export const getTemperature = async () => {
   const latAndLng = await getLocation().then((result) => {
     return result;
   });
-  const tempatureInDay = await getWeather(latAndLng.lat, latAndLng.lng).then(
+  const temperatureInDay = await getWeather(latAndLng.lat, latAndLng.lng).then(
     (result) => {
       return result.day;
     }
   );
-  return tempatureInDay;
+  return temperatureInDay;
 };
