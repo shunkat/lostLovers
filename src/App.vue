@@ -15,23 +15,7 @@
 
 <script>
 import HelloWorld from "./components/pages/HelloWorld.vue";
-
-//位置情報を取得する
-import "@/lib/location.js";
-import "@/lib/weather.js";
-import { getLocation } from "@/lib/location";
-import { getWeather } from "@/lib/weather";
-const getTemp = async () => {
-  const latAndLng = await getLocation();
-
-  console.log(letAndLng.lat);
-  let Weather = await getWeather(latAndLng.lat, latAndLng.lng);
-  console.log(Weather);
-};
-getTemp();
-
-//天気情報を取得する
-
+import { getTemperature } from "@/lib/weather"; // テスト用
 import Cloth from "./components/pages/Cloth.vue";
 import { clothIndex } from "./lib/clothes"; //　テスト用
 export default {
@@ -48,6 +32,7 @@ export default {
   mounted() {
     this.dressIndex = clothIndex(21);
     console.log(this.dressIndex); // テスト用
+    console.log(getTemperature()); // テスト用
   },
 };
 </script>
