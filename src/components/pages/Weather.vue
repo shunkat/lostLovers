@@ -18,7 +18,7 @@
 
 <script>
 import firebase from "firebase";
-
+import getWeather from "@/lib/weather.js";
 export default {
   name: "Weather",
   data: function() {
