@@ -1,23 +1,16 @@
 <template>
-  <div id="app" class="bg-white">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <div>
-      緯度経度を表示する場所
-      <ul>
-        <li id="latitude" />
-        <li id="longitude" />
-      </ul>
-    </div>
+  <div id="app" class="flex flex-row ">
+    <Weather />
     <Cloth :dress-number="dressIndex" />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/pages/HelloWorld.vue";
-import { getTemperature } from "@/lib/weather"; // テスト用
+// import { getTemperature } from "@/lib/weather"; // テスト用
 import Cloth from "./components/pages/Cloth.vue";
-import { clothIndex } from "./lib/clothes"; //　テスト用
+import Weather from "./components/pages/Weather.vue";
+// import { clothIndex } from "./lib/clothes"; //　テスト用
 export default {
   name: "App",
   components: {
@@ -30,9 +23,6 @@ export default {
     };
   },
   mounted() {
-    this.dressIndex = clothIndex(21);
-    console.log(this.dressIndex); // テスト用
-    console.log(getTemperature()); // テスト用
   },
 };
 </script>
