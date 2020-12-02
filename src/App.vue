@@ -6,15 +6,12 @@
 </template>
 
 <script>
-import HelloWorld from "./components/pages/HelloWorld.vue";
-// import { getTemperature } from "@/lib/weather"; // テスト用
 import Cloth from "./components/pages/Cloth.vue";
 import Weather from "./components/pages/Weather.vue";
 // import { clothIndex } from "./lib/clothes"; //　テスト用
 export default {
   name: "App",
   components: {
-    HelloWorld,
     Cloth,
   },
   data() {
@@ -22,8 +19,7 @@ export default {
       dressIndex: 2,
     };
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 
