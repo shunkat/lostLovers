@@ -1,22 +1,17 @@
 <template>
-  <div class="container w-1/2">
-    <div class="w-full">
-      <div class="bg-gray-100 p-10 rounded-lg">
-        <h3 class="tracking-widest text-teal-500  font-medium title-font">
-          日付
-        </h3>
-        <img alt="読み込みません" :src="clothesImage" />
-        <p class="leading-relaxed text-base">
-          コメント
-        </p>
-      </div>
-      <!-- </div> -->
+  <div class="container p-10 rounded-lg">
+    <h3>
+      Today's best Clothes
+    </h3>
+    <div class="imgBox">
+      <img alt="読み込みません" :src="clothesImage" />
     </div>
+
+    <p>
+      <!-- {{ comment }} -->
+      コメント
+    </p>
   </div>
-  <!-- <div class="container bg-red-500">
-    <p>服装イラスト</p>
-   <div>コメント（服に応じて変更</div></div>  -->
-  <!-- </div>  -->
 </template>
 
 <script>
@@ -34,11 +29,11 @@ export default {
       if (this.dressNumber == 4) {
         return "/img/t-shirt.png"; //半袖
       } else if (this.dressNumber == 3) {
-        return "/img/y-shirt.png"; //長袖
+        return "/img/y-shirt.png"; //長袖　薄手のジャケットを羽織ろう　長袖シャツ・カットソーで快適に
       } else if (this.dressNumber == 2) {
-        return "/img/longt-shirt.png"; //ジャケット
+        return "/img/longt-shirt.png"; //ジャケット　コートを着ないと寒いよ
       } else if (this.dressNumber == 1) {
-        return "/img/jacket.png"; //コート
+        return "/img/jacket.png"; //コート　ブルブル何をきても寒い　ダウンジャケットでしっかり防寒
       }
       return "";
     },
@@ -46,4 +41,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+  background-color: rgb(235, 235, 235);
+  opacity: 0.85;
+  margin: 50px;
+}
+.imgBox {
+  display: flex;
+  justify-content: center;
+}
+h3 {
+  font-size: 2.5rem;
+}
+p {
+  font-size: 1.8rem;
+}
+</style>
