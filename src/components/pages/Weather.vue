@@ -8,17 +8,17 @@
     <p>{{ weather }}</p>
     <p>
       {{ temperature }}
-      9℃
     </p>
   </div>
 </template>
 
 <script>
+import { getLocation } from "@/lib/location.js";
+import { getWeather } from "@/lib/weather.js";
 export default {
   name: "Weather",
   props: {
     weatherNumber: {
-      type: Number,
       required: true,
     },
   },
@@ -27,7 +27,7 @@ export default {
       city: "東京",
       day: "12/3",
       weather: "曇り",
-      temeperature: "9℃",
+      temperature: "9℃",
     };
   },
   computed: {
@@ -45,6 +45,12 @@ export default {
       }
       return "";
     },
+  },
+  mounted() {
+    const Location = getLocation().then((result) => {
+      console.log(result);
+    });
+    console.log();
   },
 };
 </script>
