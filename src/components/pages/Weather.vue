@@ -1,14 +1,11 @@
 <template>
   <div class="container p-10 rounded-lg">
-    <h3>
-      {{ city }}{{ day }}
-      東京　12/3
-    </h3>
+    <h3>{{ city }} {{ day }}</h3>
     <div class="imgBox">
       today's weather
       <img alt=" 読み込みません" :src="weatherImage" />
     </div>
-    <p>{{ weather }}天気</p>
+    <p>{{ weather }}</p>
     <p>
       {{ temperature }}
       9℃
@@ -24,6 +21,14 @@ export default {
       type: Number,
       required: true,
     },
+  },
+  data() {
+    return {
+      city: "東京",
+      day: "12/3",
+      weather: "曇り",
+      temeperature: "9℃",
+    };
   },
   computed: {
     weatherImage() {
