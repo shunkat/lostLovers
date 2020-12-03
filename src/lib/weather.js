@@ -28,7 +28,11 @@ export const getTemperature = async () => {
   });
   const temperatureInDay = await getWeather(latAndLng.lat, latAndLng.lng).then(
     (result) => {
-      return result.day;
+      let morning = result.morn;
+      let evening = result.eve;
+      let night = result.night;
+      let temp = [morning,evening,night];
+      return temp;
     }
   );
   return temperatureInDay;
