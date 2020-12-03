@@ -14,8 +14,7 @@ import Weather from "./components/pages/Weather.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld,
-    Cloth,
+   Cloth
   },
   data() {
     return {
