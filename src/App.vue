@@ -1,12 +1,11 @@
 <template>
   <div id="app" class="flex flex-row ">
-    <Weather />
+    <Weather :weather-number="weatherIndex" />
     <Cloth :dress-number="dressIndex" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/pages/HelloWorld.vue";
 // import { getTemperature } from "@/lib/weather"; // テスト用
 import Cloth from "./components/pages/Cloth.vue";
 import Weather from "./components/pages/Weather.vue";
@@ -14,15 +13,16 @@ import Weather from "./components/pages/Weather.vue";
 export default {
   name: "App",
   components: {
-   Cloth
+    Weather,
+    Cloth,
   },
   data() {
     return {
+      weatherIndex: "cloud",
       dressIndex: 2,
     };
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 
@@ -34,5 +34,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-image: url(/img/bgi1.jpg);
 }
 </style>
