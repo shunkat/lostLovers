@@ -46,11 +46,14 @@ export default {
       return "";
     },
   },
-  mounted() {
-    const Location = getLocation().then((result) => {
-      console.log(result);
+  async mounted() {
+    const Weather = getLocation().then((location) => {
+      getWeather(location.lat, location.lng).then((result) => {
+        console.log(result);
+
+        return result;
+      });
     });
-    console.log();
   },
 };
 </script>
