@@ -18,7 +18,24 @@ export const getWeather = async (lat, lon) => {
       return res.json();
     })
     .then((data) => {
-      return data.daily[0].feels_like;
+      const lat = data.lat;
+      const lon = data.lon;
+      const weather = data.daily[0].weather;
+      const area = data.timezone;
+      const morning = data.daily[0].feels_like.morn;
+      const evening = data.daily[0].feels_like.eve;
+      const night = data.daily[0].feels_like.night;
+
+      const WeatherObject = {
+        lat: lat,
+        lon: lon,
+        weather: weather,
+        area: area,
+        morning: morning,
+        evening: evening,
+        night: night
+      };
+      return WeatherObject;
     });
   return result;
 };
@@ -28,11 +45,7 @@ export const getTemperature = async () => {
   });
   const temperatureInDay = await getWeather(latAndLng.lat, latAndLng.lng).then(
     (result) => {
-      let morning = result.morn;
-      let evening = result.eve;
-      let night = result.night;
-      let temp = [morning,evening,night];
-      return temp;
+      return result;
     }
   );
   return temperatureInDay;
