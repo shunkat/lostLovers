@@ -4,23 +4,18 @@
       <li>
         <h3>{{ city }} {{ day }}</h3>
       </li>
-      <!-- <p v-if="show" @mouseover="mouseOver">
-        One
-      </p>
-      <p v-else-if="show == 2" @mouseover="mouseOver">
-        Two
-      </p> -->
+
+      <a href="#"> today's weather </a>
       <div class="imgBox">
-        today's weather
         <img alt=" 読み込みません" :src="weatherImage" />
       </div>
       <li>
-        <p>{{ weather }}</p>
+        <a>{{ weather }}</a>
       </li>
       <li>
-        <p>
+        <a>
           {{ temperature }}
-        </p>
+        </a>
       </li>
     </ul>
   </div>
@@ -68,12 +63,6 @@ export default {
       console.log(getWeather());
     });
   },
-  // methods: {
-  //   mouseOver: function() {
-  //     console.log("失敗！");
-  //     show: false;
-  //   },
-  // },
 };
 </script>
 
@@ -140,8 +129,23 @@ p {
 .snip1226 .current h3 {
   transform: translateY(100%);
 }
-/* Demo purposes only */
-body {
-  background-color: #212121;
+a {
+  position: relative;
+  display: inline-block;
+  transition: 0.4s;
+  font-size: 1.7rem;
+}
+a::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #14d0d6;
+  transition: 0.3s;
+}
+a:hover::after {
+  width: 100%;
 }
 </style>

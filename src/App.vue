@@ -1,28 +1,9 @@
 <template>
   <div id="app" class="flex flex-row ">
-    <!-- <div class="background">
-      <section class="one">
-        <img src="https://source.unsplash.com/1920x1080?nature" alt="" />
-        <div class="wrapper" />
-      </section>
-
-      <section class="two">
-        <img src="https://source.unsplash.com/1920x1080?landscape" alt="" />
-        <div class="wrapper" />
-      </section>
-
-      <section class="three">
-        <img src="https://source.unsplash.com/1920x1080?landscape" alt="" />
-        <div class="wrapper" />
-      </section>
-
-      <section class="four">
-        <img src="https://source.unsplash.com/1920x1080?landscape" alt="" />
-        <div class="wrapper" />
-      </section>
-    </div> -->
     <Weather :weather-number="weatherIndex" />
     <Cloth :dress-number="dressIndex" />
+    <div class="shutter" />
+    <div class="content" />
   </div>
 </template>
 
@@ -48,68 +29,118 @@ export default {
 </script>
 
 <style lang="scss">
-%fixedbox {
-  // Basic styling
-  // box-sizing: border-box;
-  // display: block;
-  // font-size: 4em;
-  // padding: 1em;
-  // width: 6em;
-  // height: 3em;
+$bg_color: #fafafa;
+$font_color: #333;
 
-  // // Center box in middle of screen
-  // // position: fixed;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate3d(-50%, -50%, 0);
+body {
+  background-color: $bg_color;
+  color: $font_color;
+  text-align: center;
 }
 #app {
-  // display: flex;
-  // flex-direction: column;
+  height: 450px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // margin-top: 60px;
+
   background-image: url(/img/bgi1.jpg);
-}
-.background {
-}
 
-.one {
-  // Section background image
-  background-image: url(https://source.unsplash.com/1920x1080?nature);
+  // オープニング
+  .shutter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1e1e1e;
+    z-index: 9999;
+    animation: byeShutter 2.6s forwards;
 
-  .wrapper:before {
-    // Box background color
-    background: red;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    &::before {
+      background-color: #8fd7ec;
+      width: 0;
+      height: 1px;
+      animation: shutterOpen1 2.6s forwards;
+    }
+
+    &::after {
+      width: 120%;
+      height: 0;
+      margin-left: -10%;
+      background-color: #f3f3f3;
+      animation: shutterOpen2 2.6s forwards;
+    }
+  }
+  .content {
+    animation: contentScale 2.6s forwards;
+  }
+}
+@keyframes byeShutter {
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1;
   }
 }
 
-.two {
-  background-image: url(https://source.unsplash.com/1920x1080?landscape);
-
-  .wrapper:before {
-    background: #faaa54;
-    mix-blend-mode: difference;
+@keyframes shutterOpen1 {
+  0% {
+    width: 0;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  90% {
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
   }
 }
 
-.three {
-  background-image: url(https://source.unsplash.com/1920x1080?portrait);
-
-  .wrapper:before {
-    background: #6c320a;
-    mix-blend-mode: screen;
+@keyframes shutterOpen2 {
+  60% {
+    width: 120%;
+    height: 0;
+    transform: rotate(5deg);
+  }
+  90% {
+    width: 120%;
+    height: 100%;
+    transform: rotate(-5deg);
+  }
+  100% {
+    width: 120%;
+    height: 100%;
+    transform: rotate(-5deg);
   }
 }
 
-.four {
-  background-image: url(https://source.unsplash.com/1920x1080?stars);
-
-  .wrapper:before {
-    background: #e4135d;
+@keyframes contentScale {
+  70% {
+    transform: perspective(800px) scale(0.9) rotateX(15deg);
+  }
+  100% {
+    transform: perspective(800px) scale(1) rotateX(0);
   }
 }
 </style>
