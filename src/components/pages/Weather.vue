@@ -1,14 +1,28 @@
 <template>
   <div class="container p-10 rounded-lg">
-    <h3>{{ city }} {{ day }}</h3>
-    <div class="imgBox">
-      today's weather
-      <img alt=" 読み込みません" :src="weatherImage" />
-    </div>
-    <p>{{ weather }}</p>
-    <p>
-      {{ temperature }}
-    </p>
+    <ul class="snip1226">
+      <li>
+        <h3>{{ city }} {{ day }}</h3>
+      </li>
+      <!-- <p v-if="show" @mouseover="mouseOver">
+        One
+      </p>
+      <p v-else-if="show == 2" @mouseover="mouseOver">
+        Two
+      </p> -->
+      <div class="imgBox">
+        today's weather
+        <img alt=" 読み込みません" :src="weatherImage" />
+      </div>
+      <li>
+        <p>{{ weather }}</p>
+      </li>
+      <li>
+        <p>
+          {{ temperature }}
+        </p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -24,6 +38,7 @@ export default {
   },
   data() {
     return {
+      show: true,
       city: "東京",
       day: "12/3",
       weather: "曇り",
@@ -49,9 +64,16 @@ export default {
   mounted() {
     const Location = getLocation().then((result) => {
       console.log(result);
+      getWeather();
+      console.log(getWeather());
     });
-    console.log();
   },
+  // methods: {
+  //   mouseOver: function() {
+  //     console.log("失敗！");
+  //     show: false;
+  //   },
+  // },
 };
 </script>
 
@@ -60,6 +82,7 @@ export default {
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
   margin: 50px;
+  z-index: 10;
 }
 .imgBox {
   display: flex;
@@ -70,5 +93,55 @@ h3 {
 }
 p {
   font-size: 1.8rem;
+}
+
+.snip1226 {
+  font-family: "Raleway", Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.snip1226 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1226 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+
+.snip1226 h3:before,
+.snip1226 h3:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1226 h3:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #14d0d6;
+}
+.snip1226 h3:after {
+  padding: 0.3em 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  // content: attr(data-hover);
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+}
+.snip1226 li:hover h3,
+.snip1226 .current h3 {
+  transform: translateY(100%);
+}
+/* Demo purposes only */
+body {
+  background-color: #212121;
 }
 </style>
