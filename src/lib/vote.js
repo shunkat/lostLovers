@@ -1,13 +1,15 @@
 import firebase from "firebase";
 
-let db = firebase.database();
 export const vote = (feel) => {
-  db.collection("vote").add({
+  // let normalCount = 0;
+  // let hotCount = 0;
+  // let coldCount = 0;
+
+  firebase.database().collection("vote").add({
     feel: feel,
     temp: test
   });
-  console.log("vote");
-  return vote;
+
 };
 
 
