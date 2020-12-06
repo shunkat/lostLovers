@@ -1,9 +1,11 @@
 import firebase from "firebase";
+import "firebase/firestore";
+
 
 
 export const dateToStr = () => {
   let date = new Date();
-  format = 'YYYY.MM.DD'
+  let format = 'YYYY.MM.DD'
     // フォーマット文字列内のキーワードを日付に置換する
     format = format.replace(/YYYY/g, date.getFullYear());
     format = format.replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2));
@@ -11,27 +13,35 @@ export const dateToStr = () => {
     return format;
   }
 
-export const vote = (date) => {
-  let docRef = db.collection(date).doc("1");
 
-  docRef.get().then(function(doc) {
+export const fetchDate = async (date) => {
+  const db = firebase.firestore();
+  let docRef = db.collection("Dates").doc(date);
+
+  let data = null;
+  await docRef.get().then(function(doc) {
       if (doc.exists) {
-          return doc.data();
+        // あった場合
+        data = doc.data();
       } else {
-          // doc.data() will be undefined in this case
-          return "No such document!";
+        // なかった場合
+        db.collection("Dates").doc(date).set({
+          count1: 0,count2: 0,count3: 0
+        });
+
       }
   }).catch(function(error) {
       return "Error getting document:";
   });
 
+  return data;
 
 
 
-  firebase.database().collection("vote").add({
-    feel: feel,
-    temp: test
-  });
+  // firebase.database().collection("vote").add({ //コメントアウトして
+  //   feel: feel,
+  //   temp: test
+  // });
 
 };
 
