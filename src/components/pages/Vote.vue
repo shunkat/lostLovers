@@ -5,13 +5,15 @@
 <script>
 import firebase from "firebase";
 import { vote } from "@/lib/vote.js";
+import { dateToStr } from "@/lib/vote.js";
 export default {
   name: "Vote",
-  data() {
-    return { vote: vote("good") };
-  },
+  data() {},
   mounted() {
-    vote("good");
+    const date = dateToStr();
+    console.log(date);
+    vote = vote(date);
+    console.log(vote);
   },
 };
 </script>
