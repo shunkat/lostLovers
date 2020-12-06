@@ -1,5 +1,24 @@
 <template>
-  <p>ボタン</p>
+  <body>
+    <p>
+      {{ count1 }}
+    </p>
+    <button id="hot">
+      ちょっとあつい
+    </button>
+    <p>
+      {{ count2 }}
+    </p>
+    <button id="normal">
+      普通
+    </button>
+    <p>
+      {{ count3 }}
+    </p>
+    <button id="chil">
+      さむい
+    </button>
+  </body>
 </template>
 
 <script>
@@ -15,12 +34,6 @@ export default {
       count3: 0,
     };
   },
-  // methods: {
-  //   voteCountOne() {
-  //     this.count1 += 1;
-  //     // ここで+1するfetchdata的なやつを実行
-  //   };
-  // }
   mounted() {
     const date = dateToStr();
     const data = fetchDate(date);
@@ -29,6 +42,12 @@ export default {
       this.count2 = data.count2;
       this.count3 = data.coun3;
     }
+  },
+  methods: {
+    voteCountOne() {
+      this.count1 += 1;
+      // ここで+1するfetchdata的なやつを実行
+    },
   },
 };
 </script>
