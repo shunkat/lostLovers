@@ -1,16 +1,24 @@
 <template>
   <div class="container p-10 rounded-lg">
-    <h3>
-      Today's best Clothes
-    </h3>
-    <div class="imgBox">
-      <img alt="読み込みません" :src="clothesImage" />
-    </div>
-
-    <p>
-      <!-- {{ comment }} -->
-      コメント
-    </p>
+    <ul class="snip1226">
+      <li>
+        <h3>
+          Today's best Clothes
+        </h3>
+      </li>
+      <div class="buttonbox">
+        <button @click="active">
+          今日のおすすめの服装は？？
+        </button>
+      </div>
+      <div v-if="isActive" />
+      <div v-else class="imgBox">
+        <img alt="読み込みません" :src="clothesImage" />
+        <p>
+          {{ comment }}
+        </p>
+      </div>
+    </ul>
   </div>
 </template>
 
@@ -23,7 +31,12 @@ export default {
       required: true,
     },
   },
-
+  data() {
+    return {
+      comment: "薄手のジャケットを羽織ろう",
+      isActive: true,
+    };
+  },
   computed: {
     clothesImage() {
       if (this.dressNumber == 4) {
@@ -38,6 +51,11 @@ export default {
       return "";
     },
   },
+  methods: {
+    active: function() {
+      this.isActive = !this.isActive;
+    },
+  },
 };
 </script>
 
@@ -50,11 +68,114 @@ export default {
 .imgBox {
   display: flex;
   justify-content: center;
+  margin-right: 1em;
 }
 h3 {
   font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 p {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  position: relative;
+  padding: 0.5em 0.75em;
+  background-color: #f0f0f0c4;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) inset;
+}
+.snip1226 {
+  font-family: "Raleway", Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.snip1226 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1226 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+
+.snip1226 h3:before,
+.snip1226 h3:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1226 h3:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #14d0d6;
+}
+.snip1226 h3:after {
+  padding: 0.3em 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  // content: attr(data-hover);
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+}
+.snip1226 li:hover h3,
+.snip1226 .current h3 {
+  transform: translateY(100%);
+}
+h1::after {
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 15px solid #f0f0f0;
+}
+button {
+  background: #14d0d6;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 60px;
+  font-size: 1.6em;
+  padding: 0 2em;
+  margin-bottom: 1em;
+  border-radius: 20px;
+  // cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+  &:hover {
+    background: #fff;
+    color: #1aab8a;
+  }
+}
+
+button:before,
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1aab8a;
+  transition: 400ms ease all;
+}
+button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+button:hover:before,
+button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
 }
 </style>
