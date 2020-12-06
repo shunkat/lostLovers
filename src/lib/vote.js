@@ -1,22 +1,27 @@
 import firebase from "firebase";
-let database = firebase.database();
-const writeUserData = (userId, name, email, imageUrl) => {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : imageUrl
-  });
-}
 
-const getSnapShot = () => {
-  let observer = doc.onSnapshot(docSnapshot => {
-    console.log(`Received doc snapshot: ${docSnapshot}`);
-    docSnapshot.data();
-    // ...
-  }, err => {
-    console.log(`Encountered error: ${err}`);
+export const vote = (feel) => {
+  // let normalCount = 0;
+  // let hotCount = 0;
+  // let coldCount = 0;
+
+  firebase.database().collection("vote").add({
+    feel: feel,
+    temp: test
   });
-}
+
+};
+
+
+// const getSnapShot = () => {
+//   let observer = doc.onSnapshot(docSnapshot => {
+//     console.log(`Received doc snapshot: ${docSnapshot}`);
+//     docSnapshot.data();
+//     // ...
+//   }, err => {
+//     console.log(`Encountered error: ${err}`);
+//   });
+// }
 
 /***
  * {
