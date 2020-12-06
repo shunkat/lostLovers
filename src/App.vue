@@ -19,7 +19,7 @@ export default {
   components: {
     Weather,
     Cloth,
-    Vote, //エラーが出たので放置
+    Vote,
   },
   data() {
     return {
