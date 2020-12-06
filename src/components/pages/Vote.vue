@@ -1,17 +1,5 @@
 <template>
-  <div class="container p-10 rounded-lg">
-    <h3>
-      Today's best Clothes
-    </h3>
-    <div class="imgBox">
-      <img alt="読み込みません" :src="clothesImage" />
-    </div>
-    <p>{{ Vote }}</p>
-    <p>
-      <!-- {{ comment }} -->
-      コメント
-    </p>
-  </div>
+  <p>{{ Vote }}</p>
 </template>
 
 <script>
@@ -19,11 +7,11 @@ import firebase from "firebase";
 import { vote } from "@/lib/vote.js";
 export default {
   name: "Vote",
-
+  data() {
+    return { vote: vote("good") };
+  },
   mounted() {
-    const vote = vote("good");
-    console.log(vote);
-    return result;
+    vote("good");
   },
 };
 </script>
