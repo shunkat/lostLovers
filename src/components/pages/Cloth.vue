@@ -96,7 +96,7 @@ export default {
       this.nightcomment = "薄めのニットやジャケットで快適に！"; //ジャケット　コートを着ないと寒いよ
     } else if (this.dressNumber == 2) {
       this.morningcomment = "コートにインナーでしっかり防寒対策を！";
-      this.nightcomment = "コートにインナーでしっかり防寒対策を！"; //ジャケット　コートを着ないと寒いよ
+      this.nightcomment = "手袋やマフラーを忘れずに！"; //ジャケット　コートを着ないと寒いよ
     } else if (this.dressNumber == 1) {
       this.morningcomment = "手袋やマフラーを忘れずに！";
       this.nightcomment = "手袋やマフラーを忘れずに！";
@@ -112,9 +112,12 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  width: 900px;
+  border-radius: 0.8rem;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
-  margin: 50px;
+  // margin: 50px;
+  margin: 50px auto;
 }
 .imgBox {
   display: flex;

@@ -46,9 +46,11 @@ export default {
         return "/img/sun.png"; //晴れ
       } else if (this.weatherNumber == "Cloud") {
         return "/img/nuage.png"; //曇り
-      } else if (this.weatherNumber == "rain") {
+      } else if (this.weatherNumber == "Drizzle") {
+        return "/img/rain.png"; //曇り
+      } else if (this.weatherNumber == "Rain") {
         return "/img/rain.png"; //雨
-      } else if (this.weatherNumber == "snow") {
+      } else if (this.weatherNumber == "Snow") {
         return "/img/snow.png"; //雪
       } else if (this.weatherNumber == "thunder") {
         return "/img/thunder.png"; //雷
@@ -72,9 +74,11 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  width: 900px;
+  border-radius: 0.8rem;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
-  margin: 50px;
+  margin: 50px auto;
   z-index: 10;
 }
 .imgBox {
