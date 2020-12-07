@@ -3,7 +3,7 @@
     <p>
       {{ count1 }}
     </p>
-    <button id="hot">
+    <button @click="voteCountOne()">
       ちょっとあつい
     </button>
     <p>
@@ -34,19 +34,24 @@ export default {
       count3: 0,
     };
   },
-  mounted() {
+  async mounted() {
     const date = dateToStr();
-    const data = fetchDate(date);
+    const data = await fetchDate(date);
     if (data) {
       this.count1 = data.count1;
       this.count2 = data.count2;
-      this.count3 = data.coun3;
+      this.count3 = data.count3;
     }
   },
   methods: {
     voteCountOne() {
       this.count1 += 1;
-      // ここで+1するfetchdata的なやつを実行
+      firebase
+        .firestore()
+        .collection("Dates").
+        .update({
+          count1: this.count1,
+        });
     },
   },
 };

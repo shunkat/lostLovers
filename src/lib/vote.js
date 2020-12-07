@@ -36,13 +36,6 @@ export const fetchDate = async (date) => {
 
   return data;
 
-
-
-  // firebase.database().collection("vote").add({ //コメントアウトして
-  //   feel: feel,
-  //   temp: test
-  // });
-
 };
 
 
