@@ -81,7 +81,7 @@ body {
       width: 120%;
       height: 0;
       margin-left: -10%;
-      background-color: #f3f3f3;
+      background-color: #000000;
       animation: shutterOpen2 2.6s forwards;
     }
   }
