@@ -1,9 +1,35 @@
 <template>
-  <p>ボタン</p>
+  <div>
+    <div>
+      <p>
+        {{ count1 }}
+      </p>
+      <button :disabled="isVoted" @click="voteCountOne()">
+        ちょっとあつい
+      </button>
+    </div>
+    <div>
+      <p>
+        {{ count2 }}
+      </p>
+      <button :disabled="isVoted" @click="voteCountTwo()">
+        普通
+      </button>
+    </div>
+    <div>
+      <p>
+        {{ count3 }}
+      </p>
+      <button :disabled="isVoted" @click="voteCountThree()">
+        さむい
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
 import firebase from "firebase";
+import { addData } from "@/lib/vote.js";
 import { fetchDate } from "@/lib/vote.js";
 import { dateToStr } from "@/lib/vote.js";
 export default {
@@ -13,24 +39,46 @@ export default {
       count1: 0,
       count2: 0,
       count3: 0,
+      isVoted: false,
     };
   },
-  // methods: {
-  //   voteCountOne() {
-  //     this.count1 += 1;
-  //     // ここで+1するfetchdata的なやつを実行
-  //   };
-  // }
-  mounted() {
+  async mounted() {
     const date = dateToStr();
-    const data = fetchDate(date);
+    const data = await fetchDate(date);
     if (data) {
       this.count1 = data.count1;
       this.count2 = data.count2;
-      this.count3 = data.coun3;
+      this.count3 = data.count3;
     }
+  },
+  methods: {
+    voteCountOne() {
+      const date = dateToStr();
+      this.count1 += 1;
+      addData(date, this.count1, 1);
+      this.isVoted = true;
+    },
+    voteCountTwo() {
+      const date = dateToStr();
+      this.count2 += 1;
+      addData(date, this.count2, 2);
+      this.isVoted = true;
+    },
+    voteCountThree() {
+      const date = dateToStr();
+      this.count3 += 1;
+      addData(date, this.count3, 3);
+      this.isVoted = true;
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+button {
+  color: white;
+  border: solid 2px white;
+  padding: 1rem;
+  width: 3rem;
+}
+</style>

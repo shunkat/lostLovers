@@ -13,7 +13,7 @@
       </div>
       <div v-if="isActive" />
       <div v-else class="imgBox">
-        <p>
+      <p>
           朝
           <img alt="読み込みません" :src="clothesImage2" />
           {{ morningcomment }}
@@ -35,12 +35,6 @@ import { getWeather } from "@/lib/weather.js";
 import { getTemperature } from "@/lib/weather.js";
 export default {
   name: "Cloth",
-  // props: {
-  //   dressNumber: {
-  //     type: Number,
-  //     required: true,
-  //   },
-  // },
   data() {
     return {
       isActive: true,
@@ -48,6 +42,12 @@ export default {
       dressNumber2: 0,
       morningcomment: "",
       nightcomment: "",
+    };
+  },
+  data() {
+    return {
+      comment: "薄手のジャケットを羽織ろう",
+      isActive: true,
     };
   },
   computed: {
