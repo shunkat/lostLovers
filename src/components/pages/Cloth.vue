@@ -13,7 +13,7 @@
       </div>
       <div v-if="isActive" />
       <div v-else class="imgBox">
-      <p>
+        <p>
           朝
           <img alt="読み込みません" :src="clothesImage2" />
           {{ morningcomment }}
@@ -42,12 +42,6 @@ export default {
       dressNumber2: 0,
       morningcomment: "",
       nightcomment: "",
-    };
-  },
-  data() {
-    return {
-      comment: "薄手のジャケットを羽織ろう",
-      isActive: true,
     };
   },
   computed: {

@@ -60,13 +60,6 @@ export default {
     let queltemp;
     await getTemperature().then((result) => {
       queltemp = result;
-    }
-  },
-  mounted() {
-    const Location = getLocation().then((result) => {
-      console.log(result);
-      getWeather();
-      console.log(getWeather());
     });
 
     this.weatherNumber = queltemp.weather[0].main;
