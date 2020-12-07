@@ -38,6 +38,31 @@ export const fetchDate = async (date) => {
 
 };
 
+export const addData = async (date,count,countNumber) => {
+  const db = firebase.firestore();
+  let docRef = db.collection("Dates").doc(date);
+  switch (countNumber) {
+    case 1:
+      await docRef.update({
+        count1:count
+      })
+      break;
+      case 2:
+      await docRef.update({
+        count2:count
+      })
+      break;
+      case 3:
+        await docRef.update({
+          count3:count
+        })
+        break;
+  }
+
+
+
+}
+
 
 // const getSnapShot = () => {
 //   let observer = doc.onSnapshot(docSnapshot => {
