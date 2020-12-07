@@ -32,11 +32,11 @@ export default {
 </script>
 
 <style lang="scss">
-$bg_color: #fafafa;
+$bg_color: #000000;
 $font_color: #333;
 
 body {
-  background-color: $bg_color;
+  background-color: black;
   color: $font_color;
   text-align: center;
 }
