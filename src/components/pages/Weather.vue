@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-10 rounded-lg">
+  <div class="cp-10 rounded-lg">
     <h3>{{ city }} {{ day }}</h3>
     <div class="imgBox">
       today's weather

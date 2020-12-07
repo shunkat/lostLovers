@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="flex flex-row ">
+  <div id="app" class="flex flex-row">
     <Weather :weather-number="weatherIndex" />
     <Cloth :dress-number="dressIndex" />
     <Vote />

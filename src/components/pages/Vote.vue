@@ -1,24 +1,30 @@
 <template>
-  <body>
-    <p>
-      {{ count1 }}
-    </p>
-    <button :disabled="isVoted" @click="voteCountOne()">
-      ちょっとあつい
-    </button>
-    <p>
-      {{ count2 }}
-    </p>
-    <button :disabled="isVoted" @click="voteCountTwo()">
-      普通
-    </button>
-    <p>
-      {{ count3 }}
-    </p>
-    <button :disabled="isVoted" @click="voteCountThree()">
-      さむい
-    </button>
-  </body>
+  <div>
+    <div>
+      <p>
+        {{ count1 }}
+      </p>
+      <button :disabled="isVoted" @click="voteCountOne()">
+        ちょっとあつい
+      </button>
+    </div>
+    <div>
+      <p>
+        {{ count2 }}
+      </p>
+      <button :disabled="isVoted" @click="voteCountTwo()">
+        普通
+      </button>
+    </div>
+    <div>
+      <p>
+        {{ count3 }}
+      </p>
+      <button :disabled="isVoted" @click="voteCountThree()">
+        さむい
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -71,5 +77,8 @@ export default {
 <style lang="scss" scoped>
 button {
   color: white;
+  border: solid 2px white;
+  padding: 1rem;
+  width: 3rem;
 }
 </style>
