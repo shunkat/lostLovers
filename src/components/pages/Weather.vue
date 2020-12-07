@@ -24,6 +24,7 @@ export default {
   },
   data() {
     return {
+      show: true,
       city: "東京",
       day: "12/3",
       weather: "曇り",
@@ -46,13 +47,11 @@ export default {
       return "";
     },
   },
-  async mounted() {
-    const Weather = getLocation().then((location) => {
-      getWeather(location.lat, location.lng).then((result) => {
-        console.log(result);
-
-        return result;
-      });
+  mounted() {
+    const Location = getLocation().then((result) => {
+      console.log(result);
+      getWeather();
+      console.log(getWeather());
     });
   },
 };
@@ -63,6 +62,7 @@ export default {
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
   margin: 50px;
+  z-index: 10;
 }
 .imgBox {
   display: flex;
@@ -73,5 +73,70 @@ h3 {
 }
 p {
   font-size: 1.8rem;
+}
+
+.snip1226 {
+  font-family: "Raleway", Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.snip1226 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1226 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+
+.snip1226 h3:before,
+.snip1226 h3:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1226 h3:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #14d0d6;
+}
+.snip1226 h3:after {
+  padding: 0.3em 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  // content: attr(data-hover);
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+}
+.snip1226 li:hover h3,
+.snip1226 .current h3 {
+  transform: translateY(100%);
+}
+a {
+  position: relative;
+  display: inline-block;
+  transition: 0.4s;
+  font-size: 1.7rem;
+}
+a::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #14d0d6;
+  transition: 0.3s;
+}
+a:hover::after {
+  width: 100%;
 }
 </style>
