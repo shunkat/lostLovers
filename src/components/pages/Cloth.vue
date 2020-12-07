@@ -13,12 +13,14 @@
       </div>
       <div v-if="isActive" />
       <div v-else class="imgBox">
-        朝
-        <img alt="読み込みません" :src="clothesImage2" />
-        夜
-        <img alt="読み込みません" :src="clothesImage" />
         <p>
+          朝
+          <img alt="読み込みません" :src="clothesImage2" />
           {{ morningcomment }}
+        </p>
+        <p>
+          夜
+          <img alt="読み込みません" :src="clothesImage" />
           {{ nightcomment }}
         </p>
       </div>
@@ -44,8 +46,8 @@ export default {
       isActive: true,
       dressNumber: 0,
       dressNumber2: 0,
-      morningcomment: [],
-      nightcomment: [],
+      morningcomment: "",
+      nightcomment: "",
     };
   },
   computed: {
@@ -78,13 +80,17 @@ export default {
       return "";
     },
   },
-  async created() {
-    // let queltemp;
-    // await getTemperature().then((result) => {
-    //   queltemp = result;
-    // });
-    clothIndex();
-    console.log(this.dressNumber);
+  async mounted() {
+    //イラスト表示のための温度取得
+    let queltemp;
+    await getTemperature().then((result) => {
+      queltemp = result;
+    });
+    console.log(getTemperature());
+
+    this.dressNumber = clothIndex(Math.round(queltemp.night) - 271);
+    this.dressNumber2 = clothIndex(Math.round(queltemp.morning) - 271);
+
     if (this.dressNumber == 5) {
       this.morningcomment = "半袖で十分！";
       this.nightcomment = "半袖で十分！";
@@ -101,22 +107,6 @@ export default {
       this.morningcomment = "手袋やマフラーを忘れずに！";
       this.nightcomment = "手袋やマフラーを忘れずに！";
     }
-    return "";
-    // this.weatherNumber = queltemp.weather[0].main;
-    // this.weather = queltemp.weather[0].main;
-    // this.city = queltemp.area;
-    // this.temperature = Math.round(queltemp.night) - 271;
-  },
-  async mounted() {
-    //イラスト表示のための温度取得
-    let queltemp;
-    await getTemperature().then((result) => {
-      queltemp = result;
-    });
-    console.log(getTemperature());
-
-    this.dressNumber = clothIndex(Math.round(queltemp.night) - 271);
-    this.dressNumber2 = clothIndex(Math.round(queltemp.morning) - 271);
   },
   methods: {
     active: function() {
