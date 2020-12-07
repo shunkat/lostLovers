@@ -1,10 +1,10 @@
 <template>
-  <div id="app" class="flex flex-row">
+  <div id="app" class="flex flex-wrap">
     <Weather :weather-number="weatherIndex" />
     <Cloth :dress-number="dressIndex" />
+    <Vote />
     <div class="shutter" />
     <div class="content" />
-    <Vote />
   </div>
 </template>
 
@@ -41,7 +41,6 @@ body {
   text-align: center;
 }
 #app {
-  height: 450px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
