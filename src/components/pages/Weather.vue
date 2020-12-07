@@ -1,23 +1,14 @@
 <template>
-  <div class="container p-10 rounded-lg">
-    <ul class="snip1226">
-      <li>
-        <h3>{{ city }} {{ day }}</h3>
-      </li>
-
-      <a href="#"> today's weather </a>
-      <div class="imgBox">
-        <img alt=" 読み込みません" :src="weatherImage" />
-      </div>
-      <li>
-        <a>{{ weather }}</a>
-      </li>
-      <li>
-        <a>
-          {{ temperature }}
-        </a>
-      </li>
-    </ul>
+  <div class="cp-10 rounded-lg">
+    <h3>{{ city }} {{ day }}</h3>
+    <div class="imgBox">
+      today's weather
+      <img alt=" 読み込みません" :src="weatherImage" />
+    </div>
+    <p>{{ weather }}</p>
+    <p>
+      {{ temperature }}
+    </p>
   </div>
 </template>
 
