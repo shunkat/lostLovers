@@ -112,9 +112,12 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  width: 900px;
+  border-radius: 0.8rem;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
-  margin: 50px;
+  // margin: 50px;
+  margin: 50px auto;
 }
 .imgBox {
   display: flex;

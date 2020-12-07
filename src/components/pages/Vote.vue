@@ -2,29 +2,30 @@
   <div class="container p-10 rounded-lg">
     <ul class="snip1226">
       <div class="flame">
+        <h3>Is good??</h3>
         <div>
+          <button id="button1" :disabled="isVoted" @click="voteCountOne()">
+            Hot
+          </button>
           <p>
             {{ count1 }}
           </p>
-          <button :disabled="isVoted" @click="voteCountOne()">
-            ちょっとあつい
-          </button>
         </div>
         <div>
+          <button id="button2" :disabled="isVoted" @click="voteCountTwo()">
+            Suitable
+          </button>
           <p>
             {{ count2 }}
           </p>
-          <button :disabled="isVoted" @click="voteCountTwo()">
-            普通
-          </button>
         </div>
         <div>
+          <button id="button3" :disabled="isVoted" @click="voteCountThree()">
+            Cold
+          </button>
           <p>
             {{ count3 }}
           </p>
-          <button :disabled="isVoted" @click="voteCountThree()">
-            さむい
-          </button>
         </div>
       </div>
     </ul>
@@ -88,9 +89,14 @@ button {
 }
 
 .container {
+  width: 900px;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
-  margin: 50px;
+  margin: 50px auto;
+  border-radius: 0.8rem;
+}
+h3 {
+  font-size: 2.5rem;
 }
 p {
   font-size: 1.7rem;
@@ -132,9 +138,18 @@ button {
   transition: 800ms ease all;
   outline: none;
   &:hover {
-    background: #fff;
-    color: #1aab8a;
+    background: rgb(247, 218, 218);
+    color: #f6fcfa;
   }
+}
+#button1 {
+  background: crimson;
+}
+#button2 {
+  background: chartreuse;
+}
+#button3 {
+  background: rgb(0, 89, 255);
 }
 button:before,
 button:after {
@@ -144,7 +159,7 @@ button:after {
   right: 0;
   height: 2px;
   width: 0;
-  background: #1aab8a;
+  background: #000000;
   transition: 400ms ease all;
 }
 button:after {
