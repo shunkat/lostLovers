@@ -1,20 +1,29 @@
 <template>
-  <div class="cp-10 rounded-lg">
-    <h3>{{ city }} {{ day }}</h3>
-    <div class="imgBox">
-      today's weather
-      <img alt=" 読み込みません" :src="weatherImage" />
-    </div>
-    <p>{{ weather }}</p>
-    <p>
-      {{ temperature }}
-    </p>
+  <div class="container p-10 rounded-lg">
+    <ul class="snip1226">
+      <li>
+        <h3>{{ city }}</h3>
+      </li>
+
+      <a href="#"> today's weather </a>
+      <div class="imgBox">
+        <img alt=" 読み込みません" :src="weatherImage" />
+      </div>
+      <li>
+        <a>{{ weather }}</a>
+      </li>
+      <li>
+        <a> {{ temperature }}℃ </a>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 import { getLocation } from "@/lib/location.js";
 import { getWeather } from "@/lib/weather.js";
+import { getTemperature } from "@/lib/weather.js";
+
 export default {
   name: "Weather",
   props: {
@@ -25,17 +34,17 @@ export default {
   data() {
     return {
       show: true,
-      city: "東京",
-      day: "12/3",
-      weather: "曇り",
-      temperature: "9℃",
+      city: [],
+      // day: "12/3",
+      weather: [],
+      temperature: [],
     };
   },
   computed: {
     weatherImage() {
-      if (this.weatherNumber == "sun") {
+      if (this.weatherNumber == "Clear") {
         return "/img/sun.png"; //晴れ
-      } else if (this.weatherNumber == "cloud") {
+      } else if (this.weatherNumber == "Cloud") {
         return "/img/nuage.png"; //曇り
       } else if (this.weatherNumber == "rain") {
         return "/img/rain.png"; //雨
@@ -47,12 +56,23 @@ export default {
       return "";
     },
   },
+  async created() {
+    let queltemp;
+    await getTemperature().then((result) => {
+      queltemp = result;
+    }
+  },
   mounted() {
     const Location = getLocation().then((result) => {
       console.log(result);
       getWeather();
       console.log(getWeather());
     });
+
+    this.weatherNumber = queltemp.weather[0].main;
+    this.weather = queltemp.weather[0].main;
+    this.city = queltemp.area;
+    this.temperature = Math.round(queltemp.night) - 271;
   },
 };
 </script>
