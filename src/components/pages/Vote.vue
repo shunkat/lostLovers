@@ -48,7 +48,7 @@ export default {
       this.count1 += 1;
       firebase
         .firestore()
-        .collection("Dates").
+        .collection("Dates")
         .update({
           count1: this.count1,
         });
