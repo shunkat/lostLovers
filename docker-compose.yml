@@ -1,12 +1,25 @@
-version: '3'
-
 services:
- web:
-    build: ./docker-nginx
+  https-portal:
+    image: steveltn/https-portal:1
     ports:
-        - 80:80
-        - 443:443
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    restart: always
+    environment:
+      DOMAINS: "localhost.example.com -> http://web"
+      STAGE: local
     volumes:
-        - ./app
-        - ./docker-nginx/default.conf:/etc/nginx/conf.d/default.conf
-        - ./ssl:/etc/nginx/ssl
+      - ./api:/usr/src/app/api
+      - /usr/src/app/api/node_modules
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "8081:8080"
