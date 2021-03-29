@@ -26,3 +26,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 Tailwind CSS IntelliSense
 bradlc.vscode-tailwindcss
 をインストールしてください
+
+デプロイしたwebsiteには
+https://warmorchil.web.app/#
+からアクセスしてください。
