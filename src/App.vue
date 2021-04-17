@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import { getTemperature } from "@/lib/weather"; // テスト用
+// 変更　テストも兼ねて
 import Cloth from "./components/pages/Cloth.vue";
 import Weather from "./components/pages/Weather.vue";
 import Vote from "./components/pages/Vote.vue"; //エラーが出たので放置
