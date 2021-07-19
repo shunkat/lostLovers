@@ -1,5 +1,5 @@
 export const getLocation = async () => {
-  let result = {};
+  // let result = {};
   const getCurrentPosition = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject, {
@@ -11,9 +11,14 @@ export const getLocation = async () => {
   };
   await getCurrentPosition()
     .then((position) => {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      return { lat: lat, lng: lng };
+      const map = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+
+      // TODO location.js lat・lng→ok
+      // console.log(map.lat);
+      return map;
     })
     .catch((reject) => {
       // エラーコードのメッセージを定義
@@ -27,7 +32,5 @@ export const getLocation = async () => {
       alert(errorMessage[reject.code]);
       return;
     });
-
-  return result;
-
+  // return result;
 };

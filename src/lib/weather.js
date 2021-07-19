@@ -1,18 +1,23 @@
-import { getLocation } from "@/lib/location.js";
+import { getLocation } from "../lib/location.js";
+import { getCurrentPosition } from "@/lib/location.js";
 
 export const getWeather = async (lat, lon) => {
   //openweathermap（天気予報API）に接続
 
+  // getWeather();
   let ownApiKey = process.env.VUE_APP_WEATHER_API_KEY;
   let ownURL =
     "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-    lat +
+    35 +
     "&lon=" +
-    lon +
+    13 +
     "&exclude=hourly,minutely&appid=" +
     ownApiKey +
     "";
 
+  getLocation().then((map) => {
+    console.log(map);
+  });
   const result = await fetch(ownURL)
     .then((res) => {
       return res.json();
@@ -33,10 +38,11 @@ export const getWeather = async (lat, lon) => {
         area: area,
         morning: morning,
         evening: evening,
-        night: night
+        night: night,
       };
       return WeatherObject;
     });
+
   return result;
 };
 export const getTemperature = async () => {

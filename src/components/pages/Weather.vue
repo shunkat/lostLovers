@@ -58,9 +58,11 @@ export default {
       return "";
     },
   },
-  async created() {
+  // TODO async/await記述削除 7/19
+  created: async function() {
     let queltemp;
-    await getTemperature().then((result) => {
+    // TODO 外部jsから取れない問題解決→↓のgetweather()がgetTemperatureになってた
+    await getWeather().then((result) => {
       queltemp = result;
     });
 

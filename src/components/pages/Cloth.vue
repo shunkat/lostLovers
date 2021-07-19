@@ -77,10 +77,10 @@ export default {
   async mounted() {
     //イラスト表示のための温度取得
     let queltemp;
-    await getTemperature().then((result) => {
+    // TODO clothImage表示されない問題解決→下のgetWeather()がgetTemperatureになってた
+    await getWeather().then((result) => {
       queltemp = result;
     });
-    console.log(getTemperature());
 
     this.dressNumber = clothIndex(Math.round(queltemp.night) - 271);
     this.dressNumber2 = clothIndex(Math.round(queltemp.morning) - 271);

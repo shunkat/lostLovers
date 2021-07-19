@@ -54,7 +54,6 @@ export const clothIndex = (temperature) => {
     dressIndex = 1; //コート
   }
 
-  console.log(dressIndex);
   return dressIndex;
 };
 export const clothIndex2 = (temperature) => {
@@ -76,7 +75,6 @@ export const clothIndex2 = (temperature) => {
     dressIndex2 = 1; //コート
   }
 
-  console.log(dressIndex);
   return dressIndex;
 };
 
