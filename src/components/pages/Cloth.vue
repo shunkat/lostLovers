@@ -12,15 +12,24 @@
         </button>
       </div>
       <div v-if="isActive" />
-      <div v-else class="imgBox">
+      <div
+        v-else
+        class="imgBox"
+      >
         <p>
           朝
-          <img alt="読み込みません" :src="clothesImage2" />
+          <img
+            alt="読み込みません"
+            :src="clothesImage2"
+          >
           {{ morningcomment }}
         </p>
         <p>
           夜
-          <img alt="読み込みません" :src="clothesImage" />
+          <img
+            alt="読み込みません"
+            :src="clothesImage"
+          >
           {{ nightcomment }}
         </p>
       </div>

@@ -4,7 +4,11 @@
       <div class="flame">
         <h3>Is good??</h3>
         <div>
-          <button id="button1" :disabled="isVoted" @click="voteCountOne()">
+          <button
+            id="button1"
+            :disabled="isVoted"
+            @click="voteCountOne()"
+          >
             Hot
           </button>
           <p>
@@ -12,7 +16,11 @@
           </p>
         </div>
         <div>
-          <button id="button2" :disabled="isVoted" @click="voteCountTwo()">
+          <button
+            id="button2"
+            :disabled="isVoted"
+            @click="voteCountTwo()"
+          >
             Suitable
           </button>
           <p>
@@ -20,7 +28,11 @@
           </p>
         </div>
         <div>
-          <button id="button3" :disabled="isVoted" @click="voteCountThree()">
+          <button
+            id="button3"
+            :disabled="isVoted"
+            @click="voteCountThree()"
+          >
             Cold
           </button>
           <p>

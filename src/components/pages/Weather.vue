@@ -7,7 +7,10 @@
 
       <a href="#"> today's weather </a>
       <div class="imgBox">
-        <img alt=" 読み込みません" :src="weatherImage" />
+        <img
+          alt=" 読み込みません"
+          :src="weatherImage"
+        >
       </div>
       <li>
         <a>{{ weather }}</a>
