@@ -20,9 +20,7 @@
 </template>
 
 <script>
-import { getLocation } from "@/lib/location.js";
 import { getWeather } from "@/lib/weather.js";
-import { getTemperature } from "@/lib/weather.js";
 
 export default {
   name: "Weather",
@@ -80,7 +78,7 @@ export default {
   border-radius: 0.8rem;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
-  margin: 50px auto;
+  margin: 50px;
   z-index: 10;
 }
 .imgBox {
