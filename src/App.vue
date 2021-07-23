@@ -1,8 +1,13 @@
 <template>
-  <div id="app" class="flex flex-wrap">
-    <Weather :weather-number="weatherIndex" />
-    <Cloth :dress-number="dressIndex" />
-    <Vote />
+  <div id="app" class="flex ">
+    <div>
+      <Weather :weather-number="weatherIndex" />
+      <Cloth :dress-number="dressIndex" />
+    </div>
+
+    <div>
+      <Vote />
+    </div>
     <div class="shutter" />
     <div class="content" />
   </div>
@@ -41,14 +46,18 @@ body {
   text-align: center;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "HanziPen TC", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 
-  background-image: url(/img/bgi1.jpg);
+  background-image: url(../public/img/sea.jpg);
 
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+  }
   // オープニング
   .shutter {
     position: fixed;

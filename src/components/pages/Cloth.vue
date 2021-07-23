@@ -141,7 +141,7 @@ p {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) inset;
 }
 .snip1226 {
-  font-family: "Raleway", Arial, sans-serif;
+  font-family: "HanziPen TC", sans-serif;
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;

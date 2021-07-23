@@ -95,7 +95,7 @@ p {
 }
 
 .snip1226 {
-  font-family: "Raleway", Arial, sans-serif;
+  font-family: "HanziPen TC", sans-serif;
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;
