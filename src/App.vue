@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <div class="flex">
-      <Weather :weather-number="weatherIndex" />
-      <Cloth :dress-number="dressIndex" />
-    </div>
+    <v-app>
+      <v-container class="mt-3">
+        <Bar />
 
-    <div>
-      <Vote />
-    </div>
+        <Weather :weather-number="weatherIndex" />
+        <Cloth :dress-number="dressIndex" />
+
+        <div>
+          <Vote />
+        </div>
+      </v-container>
+    </v-app>
   </div>
 </template>
 
 <script>
 // 変更　テストも兼ねて
+import Bar from "./components/Bar.vue";
 import Cloth from "./components/pages/Cloth.vue";
 import Weather from "./components/pages/Weather.vue";
 import Vote from "./components/pages/Vote.vue"; //エラーが出たので放置
@@ -22,9 +27,8 @@ export default {
     Weather,
     Cloth,
     Vote,
+    Bar,
   },
-
-  mounted() {},
 };
 </script>
 
@@ -33,7 +37,6 @@ $bg_color: #000000;
 $font_color: #333;
 
 body {
-  background-color: black;
   color: $font_color;
   text-align: center;
 }
@@ -45,10 +48,5 @@ body {
   color: #2c3e50;
 
   background-image: url(../public/img/sea.jpg);
-
-  .box {
-    display: flex;
-    flex-wrap: wrap;
-  }
 }
 </style>

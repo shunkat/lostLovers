@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-10 rounded-lg">
+  <div id="cloth" class="container p-10 rounded-lg">
     <ul class="snip1226">
       <li>
         <h3>
@@ -7,32 +7,25 @@
         </h3>
       </li>
       <div class="buttonbox">
-        <button @click="active">
+        <v-btn class="rounded-lg mb-2" @click="active">
           今日のおすすめの服装は？
-        </button>
+        </v-btn>
       </div>
-      <div v-if="isActive" />
-      <div
-        v-else
-        class="imgBox"
-      >
-        <p>
-          朝
-          <img
-            alt="読み込みません"
-            :src="clothesImage2"
-          >
-          {{ morningcomment }}
-        </p>
-        <p>
-          夜
-          <img
-            alt="読み込みません"
-            :src="clothesImage"
-          >
-          {{ nightcomment }}
-        </p>
-      </div>
+      <transition>
+        <div v-if="isActive" />
+        <div v-else class="imgBox">
+          <p>
+            朝
+            <img alt="読み込みません" :src="clothesImage2" />
+            {{ morningcomment }}
+          </p>
+          <p>
+            夜
+            <img alt="読み込みません" :src="clothesImage" />
+            {{ nightcomment }}
+          </p>
+        </div>
+      </transition>
     </ul>
   </div>
 </template>
@@ -119,17 +112,18 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  width: 900px;
-  border-radius: 0.8rem;
+  width: 100%;
+  border-radius: 0.9rem;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
-  margin: 50px;
+  margin: 50px auto;
 }
 .imgBox {
   display: flex;
   justify-content: center;
   margin-right: 1em;
 }
+
 img {
   height: 128px;
   width: 128px;
@@ -145,5 +139,23 @@ p {
   background-color: #f0f0f0c4;
   border-radius: 10px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) inset;
+}
+// animation
+
+/* 以下の v-enter, v-enter-to, v-enter-active がトランジションクラス */
+
+/* 表示アニメーションをする前のスタイル */
+.v-enter {
+  opacity: 0;
+}
+
+/* 表示アニメーション後のスタイル */
+.v-enter-to {
+  opacity: 1;
+}
+
+/* 表示アニメーション動作中のスタイル */
+.v-enter-active {
+  transition: all 500ms;
 }
 </style>

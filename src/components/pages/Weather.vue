@@ -1,23 +1,22 @@
 <template>
-  <div class="container p-10 rounded-lg">
+  <div id="weather" class="container p-10 rounded-lg">
     <ul class="snip1226">
-      <li>
-        <h3>{{ city }}</h3>
-      </li>
+      <div class="flame">
+        <li>
+          <h3>{{ city }}</h3>
+        </li>
 
-      <a href="#"> today's weather </a>
-      <div class="imgBox">
-        <img
-          alt=" 読み込みません"
-          :src="weatherImage"
-        >
+        <a href="#" style="color:black"> today's weather </a>
+        <div class="imgBox">
+          <img alt=" 読み込みません" :src="weatherImage" />
+        </div>
+        <li>
+          <a style="color:black">{{ weather }}</a>
+        </li>
+        <li>
+          <a style="color:black"> {{ temperature }}℃ </a>
+        </li>
       </div>
-      <li>
-        <a>{{ weather }}</a>
-      </li>
-      <li>
-        <a> {{ temperature }}℃ </a>
-      </li>
     </ul>
   </div>
 </template>
@@ -71,17 +70,21 @@ export default {
     this.weather = queltemp.weather[0].main;
     this.city = queltemp.area;
     this.temperature = Math.round(queltemp.night) - 271;
+
+    if (queltemp.area === "Asia/Tokyo") {
+      this.city = "TOKYO";
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .container {
-  width: 900px;
+  width: 100%;
   border-radius: 0.8rem;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
-  margin: 50px;
+  margin: 50px auto;
   z-index: 10;
 }
 .imgBox {
@@ -145,6 +148,7 @@ a {
   display: inline-block;
   transition: 0.4s;
   font-size: 1.7rem;
+  color: black;
 }
 a::after {
   position: absolute;

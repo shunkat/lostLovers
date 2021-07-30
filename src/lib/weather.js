@@ -6,18 +6,17 @@ export const getWeather = async (lat, lon) => {
 
   // getWeather();
   let ownApiKey = process.env.VUE_APP_WEATHER_API_KEY;
+  // TODO lat,lon =undefined
   let ownURL =
     "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-    35 +
+    35.681283 +
     "&lon=" +
-    13 +
+    139.766092 +
     "&exclude=hourly,minutely&appid=" +
     ownApiKey +
     "";
 
-  getLocation().then((map) => {
-    console.log(map);
-  });
+  getLocation().then((map) => {});
   const result = await fetch(ownURL)
     .then((res) => {
       return res.json();

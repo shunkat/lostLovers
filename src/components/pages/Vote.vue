@@ -4,11 +4,7 @@
       <div class="flame">
         <h3>Is good??</h3>
         <div>
-          <button
-            id="button1"
-            :disabled="isVoted"
-            @click="voteCountOne()"
-          >
+          <button id="button1" :disabled="isVoted" @click="voteCountOne()">
             Hot
           </button>
           <p>
@@ -16,11 +12,7 @@
           </p>
         </div>
         <div>
-          <button
-            id="button2"
-            :disabled="isVoted"
-            @click="voteCountTwo()"
-          >
+          <button id="button2" :disabled="isVoted" @click="voteCountTwo()">
             Suitable
           </button>
           <p>
@@ -28,11 +20,7 @@
           </p>
         </div>
         <div>
-          <button
-            id="button3"
-            :disabled="isVoted"
-            @click="voteCountThree()"
-          >
+          <button id="button3" :disabled="isVoted" @click="voteCountThree()">
             Cold
           </button>
           <p>
@@ -97,11 +85,11 @@ button {
   border: solid 2px white;
   padding: 1rem;
   // width: 3rem;
-  width: 800px;
+  width: 100%;
 }
 
 .container {
-  width: 900px;
+  width: 100%;
   background-color: rgb(235, 235, 235);
   opacity: 0.85;
   margin: 50px auto;
@@ -113,8 +101,7 @@ h3 {
 }
 p {
   font-size: 1.7rem;
-  // position: relative;
-  // writing-mode: vertical-lr !important;
+
   padding: 0.5em 0.75em;
   background-color: #f0f0f0c4;
   border-radius: 10px;
@@ -156,13 +143,16 @@ button {
   }
 }
 #button1 {
+  opacity: 0.8;
   background: crimson;
 }
 #button2 {
   background: chartreuse;
+  opacity: 0.8;
 }
 #button3 {
   background: rgb(0, 89, 255);
+  opacity: 0.8;
 }
 button:before,
 button:after {
